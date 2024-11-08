@@ -1,7 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    padding: 20px;
-
     display: flex; /* Используем Flexbox для центрирования */
     justify-content: center; /* Центрируем по горизонтали */
     align-items: center; /* Центрируем по вертикали */
