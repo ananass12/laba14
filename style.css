@@ -5,14 +5,25 @@ body {
     background-color: #f4f4f4;
 }
 
+
+
+.centered-text {
+
+}
+
+
+
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #fff;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Центрируем текст внутри блока */
+    border: 2px solid #000; /* Добавляем рамку */
+    padding: 20px; /* Добавляем отступы внутри блока */
+    border-radius: 10px; /* Закругляем углы рамки */
+    background-color: #f9f9f9; /* Цвет фона блока */
 }
 
 .profile {
