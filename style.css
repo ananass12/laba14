@@ -1,8 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 5% 0;
     padding: 20px;
-    background-color: #f4f4f4;
+
+    display: flex; /* Используем Flexbox для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    height: 100vh; /* Высота на 100% высоты окна браузера */
+    margin: 0; /* Убираем отступы по умолчанию */
 }
 
 .container {
