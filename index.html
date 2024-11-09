@@ -55,6 +55,36 @@
     </div>
 </div>
 
+<script>
+    // Функция для загрузки данных из sessionStorage
+    function loadEditableData() {
+        const editableElements = document.querySelectorAll('.editable');
+        editableElements.forEach((element, index) => {
+            const savedData = sessionStorage.getItem(editable-${index});
+            if (savedData) {
+                element.innerText = savedData;
+            }
+        });
+    }
+
+    // Функция для сохранения данных в sessionStorage
+    function saveEditableData() {
+        const editableElements = document.querySelectorAll('.editable');
+        editableElements.forEach((element, index) => {
+            sessionStorage.setItem(editable-${index}, element.innerText);
+        });
+    }
+
+    // Загрузка данных при загрузке страницы
+    window.onload = loadEditableData;
+
+    // Сохранение данных при изменении содержимого редактируемых полей
+    document.querySelectorAll('.editable').forEach(element => {
+        element.addEventListener('input', saveEditableData);
+    });
+</script>
+
+    
 <script src="script.js"></script>
 </body>
 </html>
