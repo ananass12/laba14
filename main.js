@@ -23,22 +23,22 @@ import { setupCounter } from './counter.js'
 
 setupCounter(document.querySelector('#counter'))
 
-// Функция для загрузки данных из Local Storage
+// Функция для загрузки данных из sessionStorage
 function loadEditableData() {
     const editableElements = document.querySelectorAll('.editable');
     editableElements.forEach((element, index) => {
-        const savedData = sessionStorage.getItem(editable-$(index));
+        const savedData = sessionStorage.getItem(`editable-${index}`);
         if (savedData) {
             element.innerText = savedData;
         }
     });
 }
 
-// Функция для сохранения данных в Local Storage
+// Функция для сохранения данных в sessionStorage
 function saveEditableData() {
     const editableElements = document.querySelectorAll('.editable');
     editableElements.forEach((element, index) => {
-        sessionStorage.setItem(editable-$(index), element.innerText);
+        sessionStorage.setItem(`editable-${index}`, element.innerText);
     });
 }
 
@@ -49,6 +49,7 @@ window.onload = loadEditableData;
 document.querySelectorAll('.editable').forEach(element => {
     element.addEventListener('input', saveEditableData);
 });
+
 
 // Обработчик для кнопки "Скачать"
 document.getElementById('downloadBtn').addEventListener('click', () => {
