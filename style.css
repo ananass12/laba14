@@ -28,7 +28,6 @@ body {
 }
 
 .section {
-    width: 48%;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -38,7 +37,7 @@ body {
     overflow: hidden;
     flex-direction: column; /* Располагаем элементы в колонку */
     justify-content: center; /* Центрируем по вертикали */
-    text-align: center; /* Центрируем текст внутри блока */
+    text-align: left; /* Центрируем текст внутри блока */
    
     padding: 20px; /* Добавляем отступы внутри блока */
 
@@ -62,8 +61,10 @@ h3 {
 }
 
 .ripple {
+    font-family: Arial, sans-serif;
     position: relative;
     overflow: hidden;
+     text-align: left;
 }
 
 .ripple::after {
