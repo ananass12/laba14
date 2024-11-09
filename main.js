@@ -1,4 +1,4 @@
-import '../css/style.css'
+import '../style.css'
 import javascriptLogo from '../javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
@@ -23,37 +23,42 @@ document.querySelector('#app').innerHTML = `
 
 setupCounter(document.querySelector('#counter'))
 
-// Сохранение данных в localStorage
-document.querySelectorAll('.editable').forEach(element => {
-    element.addEventListener('input', () => {
-        localStorage.setItem(element.textContent.trim(), element.innerHTML);
+// Функция для загрузки данных из Local Storage
+function loadEditableData() {
+    const editableElements = document.querySelectorAll('.editable');
+    editableElements.forEach((element, index) => {
+        const savedData = localStorage.getItem(editable-$(index));
+        if (savedData) {
+            element.innerText = savedData;
+        }
     });
-    
-    // Восстановление данных из localStorage
-    const savedContent = localStorage.getItem(element.textContent.trim());
-    if (savedContent) {
-        element.innerHTML = savedContent;
-    }
+}
+
+// Функция для сохранения данных в Local Storage
+function saveEditableData() {
+    const editableElements = document.querySelectorAll('.editable');
+    editableElements.forEach((element, index) => {
+        localStorage.setItem(editable-$(index), element.innerText);
+    });
+}
+
+// Загрузка данных при загрузке страницы
+window.onload = loadEditableData;
+
+// Сохранение данных при изменении содержимого редактируемых полей
+document.querySelectorAll('.editable').forEach(element => {
+    element.addEventListener('input', saveEditableData);
 });
 
-// Ripple effect
-document.querySelectorAll('.ripple').forEach(button => {
-    button.addEventListener('click', function (e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = ${size}px;
-        ripple.style.left = ${e.clientX - rect.left - size / 2}px;
-        ripple.style.top = ${e.clientY - rect.top - size / 2}px;
-        ripple.classList.add('ripple');
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
-// Скачать PDF (заглушка)
+// Обработчик для кнопки "Скачать"
 document.getElementById('downloadBtn').addEventListener('click', () => {
-    alert('Функция скачивания PDF еще не реализована.');
+    const resumeData = document.querySelector('.container').innerHTML;
+    const blob = new Blob([resumeData], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'резюме.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 });
