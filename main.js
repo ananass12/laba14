@@ -27,7 +27,7 @@ setupCounter(document.querySelector('#counter'))
 function loadEditableData() {
     const editableElements = document.querySelectorAll('.editable');
     editableElements.forEach((element, index) => {
-        const savedData = localStorage.getItem(editable-$(index));
+        const savedData = sessionStorage.getItem(editable-$(index));
         if (savedData) {
             element.innerText = savedData;
         }
@@ -38,7 +38,7 @@ function loadEditableData() {
 function saveEditableData() {
     const editableElements = document.querySelectorAll('.editable');
     editableElements.forEach((element, index) => {
-        localStorage.setItem(editable-$(index), element.innerText);
+        sessionStorage.setItem(editable-$(index), element.innerText);
     });
 }
 
