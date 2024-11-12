@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме</title>
     <link rel="stylesheet" href="style.css">
+  <script> src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"
+  </script>
 </head>
-<body>
+   <div class="main" id = "main">
 <div class="container">
     <div class="section">
         <img src="https://pp.userapi.com/vgfLw-2kDHo1Y3p8ojgsazKO6zsWIzKUHQBhjg/zSnroY4VD74.jpg" width="200" height="200" alt="Фото">
@@ -51,40 +49,10 @@
     </div>
 
     <div class="section">
-    <button class="ripple" id="downloadBtn">Скачать</button>
+      <button onclick="captureImage()">Скачать</button>
     </div>
 </div>
 
-<script>
-    // Функция для загрузки данных из sessionStorage
-    function loadEditableData() {
-        const editableElements = document.querySelectorAll('.editable');
-        editableElements.forEach((element, index) => {
-            const savedData = sessionStorage.getItem(editable-${index});
-            if (savedData) {
-                element.innerText = savedData;
-            }
-        });
-    }
+  </div> 
 
-    // Функция для сохранения данных в sessionStorage
-    function saveEditableData() {
-        const editableElements = document.querySelectorAll('.editable');
-        editableElements.forEach((element, index) => {
-            sessionStorage.setItem(editable-${index}, element.innerText);
-        });
-    }
-
-    // Загрузка данных при загрузке страницы
-    window.onload = loadEditableData;
-
-    // Сохранение данных при изменении содержимого редактируемых полей
-    document.querySelectorAll('.editable').forEach(element => {
-        element.addEventListener('input', saveEditableData);
-    });
-</script>
-
-    
-<script src="script.js"></script>
-</body>
 </html>
