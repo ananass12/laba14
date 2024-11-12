@@ -7,7 +7,7 @@ function captureImage() {
             const image = canvas.toDataURL('image/png');
             const link = document.createElement('a');
             link.href = image;
-            link.download = 'screenshot.png';
+            link.download = 'resume.png';
             link.click();
         });
     }
